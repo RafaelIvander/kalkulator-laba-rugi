@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Mini</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5" style="max-width: 600px;">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">Kalkulator Keuntungan</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-labek">Pendapatan (RP)</label>
+                        <input type="number" name="pendapatan" class="form-control" placeholder="Contoh : 50000" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-labek">Pengeluaran (RP)</label>
+                        <input type="number" name="pengeluaran" class="form-control" placeholder="Contoh : 50000" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Hitung Keuntungan</button>
+                </form>
+            </div>
+        </div>
+
+        {% if status %}
+            {% set warna_kotak = 'alert-success' if status == 'Untung' else 'alert-danger' if status == 'Rugi' else 'alert-warning' %}
+            <div class="alert {{warna_kotak}} mt-4 shadow-sm" role="alert">
+                <h4 class="alert-heading">Analisis Bisnis Anda {{status}}!</h4>
+                <hr>
+                <p class="mb-0">Total Selisih <strong>Rp {{hasil}}</strong></p>
+            </div>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
